@@ -3,6 +3,7 @@
     <h2>Register</h2>
       <p>register</p>
     <input
+    @click="register"
     v-model="email"
     type="email"
     name="email"
@@ -20,6 +21,8 @@
   </div>
 </template>
 <script>
+import AuthenticationService from '@/../services/AuthenticationService'
+
 export default {
   data () {
     return {
@@ -39,8 +42,13 @@ export default {
   },
   methods:
   {
-    register () {
-
+    async register () {
+      const response = await AuthenticationService.register(
+        {
+          email: this.email,
+          password: this.password
+        })
+      console.log(response.data)
     }
   }
 }

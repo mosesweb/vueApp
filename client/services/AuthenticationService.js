@@ -1,7 +1,6 @@
-import Api from '@/services/Api'
+import Api from '@/../services/Api'
 
-export default 
-{
+export default {
     register(credentials)
     {
         return Api().post('register', credentials)
