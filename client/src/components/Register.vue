@@ -18,7 +18,8 @@
           ></v-text-field>
         </form>
         <br>
-        <div class="danger-alert" v-html="error" />
+        <div class="danger-alert error" v-html="error" />
+        <div v-html="success" />
         <br>
         <v-btn
           dark
@@ -39,7 +40,8 @@ export default {
     return {
       email: '',
       password: '',
-      error: null
+      error: null,
+      success: null
     }
   },
   watch: {
@@ -51,11 +53,12 @@ export default {
   {
     async register () {
       try {
-        await AuthenticationService.register(
+        var successData = await AuthenticationService.register(
           {
             email: this.email,
             password: this.password
           })
+        this.success = `Hello and welcome ${successData.data.email}! Your user is created.`
       } catch (error) {
         this.error = error.response.data.error
       }
