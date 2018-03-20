@@ -1,7 +1,6 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <panel title="Register">
         <form
           name="tab-tracker-form"
           autocomplete="off">
@@ -27,7 +26,6 @@
           @click="register">
           Register
         </v-btn>
-      </panel>
     </v-flex>
   </v-layout>
 </template>
