@@ -7,7 +7,6 @@
           <v-text-field
             label="Email"
             v-model="email"
-            autocomplete="new-password"
           ></v-text-field>
           <br>
           <v-text-field
@@ -24,8 +23,8 @@
         <v-btn
           dark
           class="cyan"
-          @click="register">
-          Register
+          @click="login">
+          Login
         </v-btn>
     </v-flex>
   </v-layout>
@@ -43,16 +42,11 @@ export default {
       success: null
     }
   },
-  watch: {
-    email (value) {
-      console.log('email has changed value ' + value)
-    }
-  },
   methods:
   {
-    async register () {
+    async login () {
       try {
-        var successData = await AuthenticationService.register(
+        var successData = await AuthenticationService.login(
           {
             email: this.email,
             password: this.password

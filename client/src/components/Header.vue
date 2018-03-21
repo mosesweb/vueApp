@@ -14,6 +14,7 @@
             <v-btn flat dark>Sign Up</v-btn>
         </router-link> -->
         <v-btn @click="navigateTo({name:'register'})" flat dark>Sign Up</v-btn>
+        <v-btn @click="navigateTo({name:'login'})" flat dark>Login</v-btn>
         </v-toolbar-items>
     </v-toolbar>
 </template>
