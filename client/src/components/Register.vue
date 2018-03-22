@@ -1,5 +1,5 @@
 <template>
-  <v-layout column>
+  <v-layout>
     <v-flex xs6 offset-xs3>
       <panel title="Register">
         <form
