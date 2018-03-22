@@ -46,12 +46,15 @@ export default {
   {
     async login () {
       try {
-        var successData = await AuthenticationService.login(
+        const response = await AuthenticationService.login(
           {
             email: this.email,
             password: this.password
           })
-        this.success = `Hello and welcome ${successData.data.email}! Your user is created.`
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+
+        this.success = `Hello and welcome ${response.data.user.email}! You logged in!`
       } catch (error) {
         this.error = error.response.data.error
       }

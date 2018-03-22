@@ -52,12 +52,14 @@ export default {
   {
     async register () {
       try {
-        var successData = await AuthenticationService.register(
+        const response = await AuthenticationService.register(
           {
             email: this.email,
             password: this.password
           })
-        this.success = `Hello and welcome ${successData.data.email}! Your user is created.`
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+        this.success = `hej hej ${response.data.user.email}!`
       } catch (error) {
         this.error = error.response.data.error
       }
