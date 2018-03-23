@@ -17,6 +17,7 @@ module.exports = {
         try {
             const song = await Song.create(req.body)
             res.send(song)
+            console.log('create....................')
         } catch (err) {
             res.status(500).send({
                 error: 'Can error occured cant create song.'

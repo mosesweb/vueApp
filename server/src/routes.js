@@ -12,7 +12,7 @@ module.exports = (app) =>
     app.get('/songs',
         SongsController.index)
     
-    app.get('/post',
+    app.post('/songs',
         SongsController.post)
     
     app.post('/register',
