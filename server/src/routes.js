@@ -1,5 +1,6 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
+const SongsController = require('./controllers/SongsController')
 
 module.exports = (app) =>
 {
@@ -8,6 +9,12 @@ module.exports = (app) =>
             message: 'hello world!!'
         })
     })
+    app.get('/songs',
+        SongsController.index)
+    
+    app.get('/post',
+        SongsController.post)
+    
     app.post('/register',
         // Express middleware
         AuthenticationControllerPolicy.register,
