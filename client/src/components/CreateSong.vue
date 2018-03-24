@@ -9,20 +9,28 @@
         <v-text-field
           label="Title"
           v-model="song.title"
+          required
+          :rules="[required]"
         ></v-text-field>
 
             <v-text-field
           label="Artist"
+          required
+          :rules="[required]"
           v-model="song.artist"
         ></v-text-field>
 
               <v-text-field
           label="Genre"
+          required
+          :rules="[required]"
           v-model="song.genre"
         ></v-text-field>
 
               <v-text-field
           label="Album"
+          required
+          :rules="[required]"
           v-model="song.album"
         ></v-text-field>
 
@@ -79,7 +87,8 @@ export default {
         youtubeId: null,
         lyrics: null,
         tab: null
-      }
+      },
+      required: (value) => !!value || 'Required.'
     }
   },
   components: {
