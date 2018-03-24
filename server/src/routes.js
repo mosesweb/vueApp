@@ -1,6 +1,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
+const JapaneseDictonarySearchController = require('./controllers/JapaneseDictonarySearchController')
 
 module.exports = (app) =>
 {
@@ -14,6 +15,9 @@ module.exports = (app) =>
     
     app.get('/songs/:songId',
         SongsController.show)
+
+    app.get('/getJishoSearchResult/:searchString',
+        JapaneseDictonarySearchController.show)
 
     app.post('/songs',
         SongsController.post)
