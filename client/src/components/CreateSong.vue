@@ -13,11 +13,11 @@
           :rules="[required]"
         ></v-text-field>
 
-            <v-text-field
+        <v-text-field
           label="Artist"
+          v-model="song.artist"
           required
           :rules="[required]"
-          v-model="song.artist"
         ></v-text-field>
 
               <v-text-field
@@ -60,6 +60,14 @@
   >
   </v-text-field>
     </panel>
+    <v-alert
+        class="ml-4"
+        :value="error"
+        transition="scale-transition"
+        error>
+        {{error}}
+    </v-alert>
+
   <v-btn
   dark
   class="cyan"
@@ -88,6 +96,7 @@ export default {
         lyrics: null,
         tab: null
       },
+      error: null,
       required: (value) => !!value || 'Required.'
     }
   },
@@ -96,6 +105,12 @@ export default {
   },
   methods: {
     async create () {
+      this.error = null
+      const areAllFieldsFilledIn = Object.keys(this.song).every(key => !!this.song[key])
+      if (!areAllFieldsFilledIn) {
+        this.error = 'Please fill in all fields'
+        return
+      }
       try {
         await SongsServices.post(this.song)
         this.$router.push({
