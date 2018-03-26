@@ -21,6 +21,7 @@
     "joi": "^13.1.2",
     "jsonwebtoken": "^8.2.0",
     "morgan": "^1.9.0",
+    "mysql2": "^1.5.3",
     "nodemon": "^1.17.1",
     "sequelize": "^4.36.0",
     "sqlite3": "^3.1.8"
