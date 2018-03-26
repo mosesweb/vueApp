@@ -30,7 +30,7 @@ module.exports = {
             console.log('create....................')
         } catch (err) {
             res.status(500).send({
-                error: 'Can error occured cant create song.'
+                error: err + ' Can error occured cant create song.'
             })
         }
     }
