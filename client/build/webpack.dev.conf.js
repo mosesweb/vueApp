@@ -31,6 +31,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
+    disableHostCheck: true,
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
@@ -42,8 +43,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
+<<<<<<< HEAD
       poll: config.dev.poll
     }
+=======
+      poll: config.dev.poll,
+    },
+>>>>>>> 22bcebba188087f1dce853e6b1b70a3aaa2d98cf
   },
   plugins: [
     new webpack.DefinePlugin({
