@@ -15,6 +15,6 @@ module.exports = (sequelize, DataTypes) => {
 
     Word.belongsTo(VocabularyList)
 
-    return Word
+    return VocabularyList
 
 }

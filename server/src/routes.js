@@ -2,6 +2,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
 const JapaneseDictonarySearchController = require('./controllers/JapaneseDictonarySearchController')
+const VocabularyListController = require('./controllers/VocabularyListController')
 
 module.exports = (app) =>
 {
@@ -30,4 +31,7 @@ module.exports = (app) =>
     app.post('/login',
         // Express middleware
         AuthenticationController.login)
+
+    app.post('/vocabularylists',
+        VocabularyListController.post)
 }
