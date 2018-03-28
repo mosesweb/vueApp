@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     const VocabularyList = sequelize.define('VocabularyList', {
         title: DataTypes.STRING,
         mainText: DataTypes.TEXT,
-        difficulty: DataTypes.STRING
+        difficulty: DataTypes.STRING,
+        UserId: DataTypes.INTEGER
     })
 
     Word.belongsTo(VocabularyList)

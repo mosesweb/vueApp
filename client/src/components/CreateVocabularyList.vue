@@ -50,7 +50,8 @@ export default {
       VocabularyList: {
         title: null,
         mainText: null,
-        difficulty: null
+        difficulty: null,
+        UserId: 1
       },
       error: null,
       required: (value) => !!value || 'Required.'

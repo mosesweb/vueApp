@@ -63,6 +63,7 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
         this.success = `hej hej ${response.data.user.email}!`
+        this.$router.push({ name: 'songs' })
       } catch (error) {
         this.error = error.response.data.error
       }
