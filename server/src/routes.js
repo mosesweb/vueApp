@@ -20,9 +20,15 @@ module.exports = (app) =>
     app.get('/getJishoSearchResult/:searchString',
         JapaneseDictonarySearchController.show)
 
+    app.get('/vocabularylists',
+        VocabularyListController.index)
+
+    app.get('/vocabularylists/:vocabularyListId',
+        VocabularyListController.show)
+
     app.post('/songs',
         SongsController.post)
-    
+
     app.post('/register',
         // Express middleware
         AuthenticationControllerPolicy.register,

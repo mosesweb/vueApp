@@ -4,9 +4,11 @@ import Index from '@/components/Index'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Songs from '@/components/Songs'
+import VocabularyLists from '@/components/VocabularyLists'
 import CreateSong from '@/components/CreateSong'
 import CreateVocabularyList from '@/components/CreateVocabularyList'
 import ViewSong from '@/components/ViewSong'
+import ViewVocabularyList from '@/components/ViewVocabularyList/'
 
 Vue.use(Router)
 
@@ -38,6 +40,11 @@ export default new Router({
       component: ViewSong
     },
     {
+      path: '/lists/:vocabularyListId',
+      name: 'vocabularylist',
+      component: ViewVocabularyList
+    },
+    {
       path: '/songs/create',
       name: 'songs-create',
       component: CreateSong
@@ -46,6 +53,11 @@ export default new Router({
       path: '/lists/create',
       name: 'vocabularylist-create',
       component: CreateVocabularyList
+    },
+    {
+      path: '/lists',
+      name: 'vocabularylists',
+      component: VocabularyLists
     }
   ]
 })
