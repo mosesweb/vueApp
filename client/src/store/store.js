@@ -23,8 +23,8 @@ export default new Vuex.Store({
         state.isUserLoggedIn = false
       }
     },
-    setUser (state, token) {
-      state.token = token
+    setUser (state, user) {
+      state.user = user
     }
   },
   actions: {

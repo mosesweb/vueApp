@@ -28,6 +28,7 @@
       ></v-text-field>
 
         <v-btn
+        v-if="$store.state.isUserLoggedIn"
         dark
         class="cyan"
         @click="create">
