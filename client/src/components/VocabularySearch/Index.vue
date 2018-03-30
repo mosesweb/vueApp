@@ -3,11 +3,13 @@
     <v-flex xs12 ml-3>
       <Panel title="Search">
           <p>We have content here as well!</p>
-           <v-text-field
-          label="Json search"
-          v-model="searchString"
+        <form v-on:keyup.enter="searchOnWord">
+         <v-text-field
+        label="Json search"
+        v-model="searchString"
         ></v-text-field>
-        <v-btn @click="searchOnWord">Search</v-btn>
+        <v-btn id="searchbtn" @click="searchOnWord">Search</v-btn>
+        </form>
         <div class="json-status">{{this.status}}</div>
         <div class="json-result">{{this.data}}</div>
       </Panel>
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Panel from '@/components/Panel'
 import ResultRow from './ResultRow'
 
@@ -26,6 +29,7 @@ import JapaneseDictonarySearch from '@/services/JapaneseDictonarySearch'
 export default {
   data () {
     return {
+      sortCol: 'fat',
       searchString: null,
       status: null,
       data: null,
@@ -38,7 +42,7 @@ export default {
           carbs: 24,
           protein: 4.0,
           iron: '1%'
-        }
+        },
       ]
     }
   },
@@ -53,6 +57,7 @@ export default {
             , l < arr.length) {}
     },
     async searchOnWord () {
+      this.fixSomething()
       this.status = 'loading..'
       const searchResultItems = (await (JapaneseDictonarySearch.getResult(this.searchString))).data
           var l = 0
@@ -71,7 +76,7 @@ export default {
               , ++l
               , l < searchResultItems.data.length) {
               }
-         
+     this.status = ''    
     }
   },
   components: {
