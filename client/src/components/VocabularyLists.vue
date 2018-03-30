@@ -24,9 +24,6 @@
                     <div class="vocabularylist-mainText">{{vocabularylist.mainText}}</div>
                     <div class="vocabularylist-difficulty">{{vocabularylist.difficulty}}</div>
                   </v-flex>
-                  <v-flex xs6>
-                    <!-- <img class="difficulty-image" :src="vocabularylist.difficultyImageUrl" /> -->
-                  </v-flex>
                     <v-btn
                     dark
                     class="cyan"

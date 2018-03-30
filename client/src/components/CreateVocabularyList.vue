@@ -38,11 +38,14 @@
     </panel>
   </v-flex>
 
+  <VocabularySearch title="VocabularyList">
+  </VocabularySearch>
 </v-layout>
 </template>
 
 <script>
 import Panel from '@/components/Panel'
+import VocabularySearch from '@/components/VocabularySearch/'
 import VocabularyListsServices from '@/services/VocabularyListsService'
 
 export default {
@@ -59,7 +62,8 @@ export default {
     }
   },
   components: {
-    Panel
+    Panel,
+    VocabularySearch
   },
   methods: {
     async create () {

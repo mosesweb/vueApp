@@ -25,13 +25,6 @@
                     <v-flex xs6>
                       <!-- <img class="difficulty-image" :src="vocabularylist.difficultyImageUrl" /> -->
                     </v-flex>
-                      <v-btn
-                      dark
-                      class="cyan"
-                      :to="{name: 'vocabularylist', params: {vocabularylistId: vocabularylist.id}}"
-                      >
-                      View vocabularylist
-                      </v-btn>
                   </v-layout>
                 </div>
             </panel>
@@ -48,7 +41,7 @@ import VocabularyListsService from '@/services/VocabularyListsService'
 export default {
   components: {
     Panel,
-    ListTitle 
+    ListTitle
   },
   data () {
     return {
