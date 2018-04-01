@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-flex xs12 ml-3>
+    <v-flex xs8 ml-3>
       <Panel title="Search">
           <p>We have content here as well!</p>
         <form v-on:keyup.enter="searchOnWord">

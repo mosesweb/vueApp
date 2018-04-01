@@ -3,10 +3,39 @@ const {VocabularyList} = require('../models')
 module.exports = {
     async index (req, res) {
         try {
+            if(req.params.UserId != null) {
+                console.log('userid..')
+                const vocabularylists = await VocabularyList.findAll({
+                    limit: 10,
+                    where: {
+                        UserId: req.params.UserId
+                    }
+                })
+                res.send(vocabularylists)
+            }
+            else {
+                console.log('not userid..')
+                const vocabularylists = await VocabularyList.findAll({
+                    limit: 10
+                })
+                res.send(vocabularylists)
+            }
+        } catch (err) {
+            res.status(500).send({
+                error: 'Cant fetch vocabularylists'
+            })
+        }
+    },
+    async getUserLists (req, res) {
+        try {
             const vocabularylists = await VocabularyList.findAll({
-                limit: 10
+                limit: 10,
+                where: {
+                    UserId: req.params.UserId // this.$store.state.user.id
+                }
             })
             res.send(vocabularylists)
+
         } catch (err) {
             res.status(500).send({
                 error: 'Cant fetch vocabularylists'
@@ -15,7 +44,6 @@ module.exports = {
     },
     async show (req, res) {
         try {
-            console.log('trying...')
             const vocabularylists = await VocabularyList.findById(req.params.vocabularyListId)
             res.send(vocabularylists)
         } catch (err) {

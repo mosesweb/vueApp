@@ -1,7 +1,7 @@
 <template>
     <v-layout>
         <v-flex xs6 offset-xs3>
-            <panel title="VocabularyLists">
+            <panel title="My vocabularyLists">
                 <v-btn
                 :to="{name: 'vocabularylist-create'}"
                 class="cyan accent-2"
@@ -29,7 +29,7 @@
                     class="cyan"
                     :to="{name: 'vocabularylist', params: {vocabularyListId: vocabularylist.id}}"
                     >
-                    View vocabularylist
+                    View vocabularylist {{vocabularylist.id}}
                     </v-btn>
                 </v-layout>
               </div>
@@ -48,12 +48,13 @@ export default {
   },
   data () {
     return {
-      vocabularylists: null
+      vocabularylists: null,
+      userId: this.$store.state.user.id
     }
   },
   async mounted () {
     // do a request to the backend for all the vocabularylists
-    this.vocabularylists = (await VocabularyListsService.index()).data
+    this.vocabularylists = (await VocabularyListsService.getUserLists(this.userId)).data
   }
 }
 </script>

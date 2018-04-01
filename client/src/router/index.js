@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Songs from '@/components/Songs'
 import VocabularyLists from '@/components/VocabularyLists'
+import MyVocabularyLists from '@/components/MyVocabularyLists'
 import CreateSong from '@/components/CreateSong'
 import CreateVocabularyList from '@/components/CreateVocabularyList'
 import ViewSong from '@/components/ViewSong'
@@ -58,6 +59,11 @@ export default new Router({
       path: '/lists',
       name: 'vocabularylists',
       component: VocabularyLists
+    },
+    {
+      path: '/my-lists',
+      name: 'my-lists',
+      component: MyVocabularyLists
     }
   ]
 })

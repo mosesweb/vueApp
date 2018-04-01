@@ -6,7 +6,10 @@
         </span>
     </v-toolbar-title>
     <v-toolbar-items>
-        <v-btn @click="navigateTo({name:'songs'})" flat dark>Songs</v-btn>
+        <v-btn @click="navigateTo({name:'vocabularylists'})" flat dark>vocabulary lists</v-btn>
+        <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        @click="navigateTo({name:'my-lists'})" flat dark>my vocabulary lists</v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
         <v-toolbar-items>
@@ -18,7 +21,7 @@
         @click="navigateTo({name:'login'})" flat dark>Login</v-btn>
         <v-btn
         v-if="$store.state.isUserLoggedIn"
-        @click="logout" flat dark>Log out</v-btn>
+        @click="logout" flat dark>Log out {{this.$store.state.user.email}}</v-btn>
         </v-toolbar-items>
     </v-toolbar>
 </template>

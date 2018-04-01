@@ -55,7 +55,7 @@ export default {
         title: null,
         mainText: null,
         difficulty: null,
-        UserId: 1
+        UserId: this.$store.state.user.id
       },
       error: null,
       required: (value) => !!value || 'Required.'

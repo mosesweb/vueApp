@@ -10,6 +10,7 @@
       <td class="text-xs-right">{{ props.item.common }}</td>
       <td class="text-xs-right">{{ props.item.calories }}</td>
       <td class="text-xs-right">{{ props.item.kanji }}</td>
+      <td class="text-xs-right">{{ props.item.kanji }}</td>
       <td class="text-xs-right">{{ props.item.carbs }}</td>
       <td class="text-xs-right">{{ props.item.protein }}</td>
       <td class="text-xs-right">{{ props.item.iron }}</td>

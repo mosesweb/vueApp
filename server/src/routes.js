@@ -23,6 +23,9 @@ module.exports = (app) =>
     app.get('/vocabularylists',
         VocabularyListController.index)
 
+    app.get('/getUserLists/:UserId',
+        VocabularyListController.getUserLists)
+
     app.get('/vocabularylists/:vocabularyListId',
         VocabularyListController.show)
 
