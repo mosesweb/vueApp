@@ -29,7 +29,7 @@ module.exports = {
     async getUserLists (req, res) {
         try {
             const vocabularylists = await VocabularyList.findAll({
-                limit: 10,
+                limit: 100,
                 where: {
                     UserId: req.params.UserId // this.$store.state.user.id
                 }

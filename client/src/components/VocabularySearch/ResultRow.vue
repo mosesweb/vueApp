@@ -6,7 +6,7 @@
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
-      <td>{{ props.item.name }}</td>
+      <td>ADD</td>
       <td class="text-xs-right">{{ props.item.common }}</td>
       <td class="text-xs-right">{{ props.item.calories }}</td>
       <td class="text-xs-right">{{ props.item.kanji }}</td>

@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-flex xs8 ml-3>
+    <v-flex xs12 ml-3>
       <Panel title="Search">
           <p>We have content here as well!</p>
         <form v-on:keyup.enter="searchOnWord">
@@ -70,7 +70,7 @@ export default {
                 name: searchResultItems.data[l].japanese.join(','),
                 calories: searchResultItems.data[l].senses[0].english_definitions.join(','),
                 kanji: searchResultItems.data[l].japanese[0].word,
-                carbs: 24,
+                carbs: searchResultItems.data[l].japanese[0].reading,
                 protein: 4.0,
                 iron: '1%'})
               , ++l

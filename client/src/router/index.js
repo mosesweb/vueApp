@@ -7,7 +7,7 @@ import Songs from '@/components/Songs'
 import VocabularyLists from '@/components/VocabularyLists'
 import MyVocabularyLists from '@/components/MyVocabularyLists'
 import CreateSong from '@/components/CreateSong'
-import CreateVocabularyList from '@/components/CreateVocabularyList'
+import CreateVocabularyList from '@/components/CreateVocabularyList/CreateVocabularyList'
 import ViewSong from '@/components/ViewSong'
 import ViewVocabularyList from '@/components/ViewVocabularyList/'
 

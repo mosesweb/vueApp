@@ -1,50 +1,18 @@
 <template>
 <v-layout>
-  <v-flex xs4>
-    <panel title="VocabularyList">
-      <form
-      name="tab-tracker-form"
-      autocomplete="off">
-
-      <v-text-field
-        label="Title"
-        v-model="VocabularyList.title"
-        required
-        :rules="[required]"
-      ></v-text-field>
-
-        <v-text-field
-        label="MainText"
-        v-model="VocabularyList.mainText"
-        required
-        :rules="[required]"
-      ></v-text-field>
-
-        <v-text-field
-        label="Difficulty"
-        v-model="VocabularyList.difficulty"
-        required
-        :rules="[required]"
-      ></v-text-field>
-
-        <v-btn
-        v-if="$store.state.isUserLoggedIn"
-        dark
-        class="cyan"
-        @click="create">
-        Create VocabularyList
-        </v-btn>
-        </form>
-    </panel>
+  <v-flex xs12>
+  <CurrentWordsInList v-if="this.VocabularyList.id !== null && this.IsCreated" :vocabularylistId="this.VocabularyList.data.id"></CurrentWordsInList>
+  <CreateForm v-if="!this.IsCreated"></CreateForm>
   </v-flex>
-
-  <VocabularySearch title="VocabularyList">
+  <VocabularySearch v-if="this.IsCreated" title="VocabularyList">
   </VocabularySearch>
 </v-layout>
 </template>
 
 <script>
 import Panel from '@/components/Panel'
+import CreateForm from './CreateForm'
+import CurrentWordsInList from './CurrentWordsInList'
 import VocabularySearch from '@/components/VocabularySearch/'
 import VocabularyListsServices from '@/services/VocabularyListsService'
 
@@ -52,20 +20,30 @@ export default {
   data () {
     return {
       VocabularyList: {
+        id: null,
         title: null,
         mainText: null,
         difficulty: null,
         UserId: this.$store.state.user.id
       },
       error: null,
+      IsCreated: false,
       required: (value) => !!value || 'Required.'
     }
   },
   components: {
     Panel,
-    VocabularySearch
+    VocabularySearch,
+    CreateForm,
+    CurrentWordsInList
   },
   methods: {
+    updateCreatedStage (iscreated) {
+      this.IsCreated = iscreated
+    },
+    SetCreatedList (vocabularylist) {
+      this.VocabularyList = vocabularylist
+    },
     async create () {
       this.error = null
       const areAllFieldsFilledIn = Object.keys(this.VocabularyList).every(key => !!this.VocabularyList[key])
