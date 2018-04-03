@@ -1,4 +1,4 @@
-const {VocabularyList} = require('../models')
+const {VocabularyList, Word} = require('../models')
 
 module.exports = {
     async index (req, res) {
@@ -44,7 +44,26 @@ module.exports = {
     },
     async show (req, res) {
         try {
-            const vocabularylists = await VocabularyList.findById(req.params.vocabularyListId)
+            const vocabularylists = await VocabularyList.findById(
+                req.params.vocabularyListId, {
+                    include: {
+                        model: Word
+                    }
+                })
+            try {
+                console.log('this...................')
+                const listtest = await Word.findById(1, {
+                    include: { model: VocabularyList }
+                })
+                const listtest2 = await VocabularyList.findById(1, {
+                    include: { model: Word }
+                })
+                console.log(listtest2)
+            }
+            catch (e) {
+                console.log(e)
+            }
+            
             res.send(vocabularylists)
         } catch (err) {
             res.status(500).send({

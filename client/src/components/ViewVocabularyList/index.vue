@@ -21,6 +21,7 @@
                       <ListTitle :listtitle="vocabularylist.title"></ListTitle>
                       <div class="vocabularylist-mainText">{{vocabularylist.mainText}}</div>
                       <div class="vocabularylist-difficulty">{{vocabularylist.difficulty}}</div>
+                      {{vocabularylist}}
                     </v-flex>
                     <v-flex xs6>
                       <!-- <img class="difficulty-image" :src="vocabularylist.difficultyImageUrl" /> -->

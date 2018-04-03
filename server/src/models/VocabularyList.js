@@ -1,11 +1,4 @@
 module.exports = (sequelize, DataTypes) => {
-    
-    const Word = sequelize.define('Word', {
-        japanese: DataTypes.STRING,
-        hiragana: DataTypes.STRING,
-        romaji: DataTypes.STRING,
-        translation: DataTypes.TEXT,
-    })
 
     const VocabularyList = sequelize.define('VocabularyList', {
         title: DataTypes.STRING,
@@ -14,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         UserId: DataTypes.INTEGER
     })
 
-    Word.belongsTo(VocabularyList)
-
+    VocabularyList.associate = function (models) {
+        VocabularyList.hasMany(models.Word)
+    }
     return VocabularyList
-
 }
