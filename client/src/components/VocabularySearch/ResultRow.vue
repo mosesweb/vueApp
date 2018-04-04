@@ -30,12 +30,12 @@ export default {
           sortable: false,
           value: 'name'
         },
-        { text: 'Common', value: 'common' },
-        { text: 'Calories', value: 'calories' },
-        { text: 'kanji (g)', value: 'kanji' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
-        { text: 'Iron (%)', value: 'iron' }
+        { text: 'Common', value: 'common', sortable: true },
+        { text: 'Calories', value: 'calories', sortable: false },
+        { text: 'kanji (g)', value: 'kanji', sortable: false },
+        { text: 'Carbs (g)', value: 'carbs', sortable: false },
+        { text: 'Protein (g)', value: 'protein', sortable: false },
+        { text: 'Iron (%)', value: 'iron', sortable: false }
       ]
     }
   }

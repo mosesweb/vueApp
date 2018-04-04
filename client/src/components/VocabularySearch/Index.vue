@@ -66,7 +66,7 @@ export default {
 
           while ( 
                this.items.push({
-                common: searchResultItems.data[l].is_common,
+                common: searchResultItems.data[l].is_common == true ? 'yes' : 'no',
                 name: searchResultItems.data[l].japanese.join(','),
                 calories: searchResultItems.data[l].senses[0].english_definitions.join(','),
                 kanji: searchResultItems.data[l].japanese[0].word,
