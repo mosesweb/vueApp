@@ -76,7 +76,8 @@ export default {
               , ++l
               , l < searchResultItems.data.length) {
               }
-     this.status = ''    
+     this.status = ''
+     this.items    
     }
   },
   components: {
