@@ -6,7 +6,7 @@
     class="elevation-1"
   >
     <template slot="items" slot-scope="props">
-      <td>ADD</td>
+      <td v-on:click="addWord(props.item)">ADD</td>
       <td class="text-xs-right">{{ props.item.common }}</td>
       <td class="text-xs-right">{{ props.item.calories }}</td>
       <td class="text-xs-right">{{ props.item.kanji }}</td>
@@ -20,7 +20,12 @@
 
 <script>
 export default {
-  props: ['items'],
+  props: ['items', 'vocabularylistId'],
+  methods: {
+    async addWord (word) {
+      await this.$parent.addWord(word)
+    }
+  },
   data () {
     return {
       headers: [

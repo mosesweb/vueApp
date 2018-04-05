@@ -3,7 +3,7 @@
     <v-flex xs12 ml-3>
       <Panel title="Search">
           <p>We have content here as well!</p>
-        <form v-on:keyup.enter="searchOnWord">
+        <form v-on:submit.prevent v-on:keyup.enter="searchOnWord">
          <v-text-field
         label="Json search"
         v-model="searchString"
@@ -25,6 +25,7 @@ import Panel from '@/components/Panel'
 import ResultRow from './ResultRow'
 
 import JapaneseDictonarySearch from '@/services/JapaneseDictonarySearch'
+import VocabularyListsServices from '@/services/VocabularyListsService'
 
 export default {
   data () {
@@ -47,6 +48,14 @@ export default {
     }
   },
   methods: {
+    addWord: async function(data) {
+      alert(data.kanji + ' got the id: ' + this.vocabularylistId) // pass through
+      try {
+        await VocabularyListsServices.addWord(data.kanji, this.vocabularylistId)
+      } catch (err) {
+        console.log(err)
+      }
+    },
     fixSomething () {
       console.log('hej')
     },
@@ -85,7 +94,7 @@ export default {
     ResultRow
   },
   props: [
-    'title'
+    'title', 'vocabularylistId'
   ]
 }
 </script>

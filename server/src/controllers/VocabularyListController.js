@@ -80,5 +80,16 @@ module.exports = {
                 error: err + ' Can error occured cant create VocabularyList.'
             })
         }
+    },
+    async addWord (req, res) {
+        console.log(req.body)
+        try {
+            const word = await Word.create({ japanese: req.body.word, hiragana: 'sup', romaji: 'asd', translation: 'translation..', VocabularyListId: req.body.listId})
+            res.send(word)
+        } catch (err) {
+            res.status(500).send({
+                error: err + ' Can error occured cant create a Word.'
+            })
+        }
     }
 }

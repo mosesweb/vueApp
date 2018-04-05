@@ -4,7 +4,7 @@
   <CurrentWordsInList v-if="this.VocabularyList.id !== null && this.IsCreated" :vocabularylistId="this.VocabularyList.data.id"></CurrentWordsInList>
   <CreateForm v-if="!this.IsCreated"></CreateForm>
   </v-flex>
-  <VocabularySearch v-if="this.IsCreated" title="VocabularyList">
+  <VocabularySearch v-if="this.IsCreated && this.VocabularyList.id !== null" :vocabularylistId="this.VocabularyList.data.id" title="VocabularyList">
   </VocabularySearch>
 </v-layout>
 </template>

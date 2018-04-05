@@ -13,5 +13,8 @@ export default {
   },
   post (vocabularyList) {
     return Api().post('vocabularylists', vocabularyList)
+  },
+  addWord (word, listId) {
+    return Api().post('addword', { word: word, listId: listId })
   }
 }

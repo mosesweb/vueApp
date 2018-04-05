@@ -43,4 +43,7 @@ module.exports = (app) =>
 
     app.post('/vocabularylists',
         VocabularyListController.post)
+
+    app.post('/addword',
+        VocabularyListController.addWord)
 }
